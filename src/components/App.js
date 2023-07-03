@@ -13,8 +13,8 @@ const App = () => {
     setList([...list, obj])
   }
 
-  function deleteTask(id){
-    setList(list.filter((todo)=>(todo.id!==id)));
+  function deleteTask(id) {
+    setList(list.filter((todo) => (todo.id !== id)));
   }
 
   return (
@@ -23,15 +23,17 @@ const App = () => {
       <h3>To-Do List</h3>
       <input type='text' onChange={(e) => { setTodo(e.target.value) }}></input>
       <button onClick={addToList}>Add Todo</button>
-      {
-        list.length > 0 &&
-        list.map((task) => (
-          <div>
-            <span>{task.todo}</span>
-            <button onClick={()=>{deleteTask(task.id)}}>Delete</button>
-          </div>
-        ))
-      }
+      <ul>
+        {
+          list.length > 0 &&
+          list.map((task) => (
+            <li>
+              <span>{task.todo}</span>
+              <button onClick={() => { deleteTask(task.id) }}>Delete</button>
+            </li>
+          ))
+        }
+      </ul>
     </div>
   )
 }
