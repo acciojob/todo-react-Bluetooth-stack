@@ -27,10 +27,12 @@ const App = () => {
         {
           list.length > 0 &&
           list.map((task) => (
-            <li>
-              <span>{task.todo}</span>
+            <div>
+              <li>
+                <span>{task.todo}</span>
+              </li>
               <button onClick={() => { deleteTask(task.id) }}>Delete</button>
-            </li>
+            </div>
           ))
         }
       </ul>
